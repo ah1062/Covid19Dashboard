@@ -11,7 +11,7 @@ setuptools.setup(
     description="Covid-19 Data Presentation Dashboard, ECM1400 Programming Coursework",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/ah1062/Covid19Dashboard_ah1062",
+    url="https://github.com/ah1062/Covid19Dashboard",
     packages=setuptools.find_packages(),
     classifiers=[
 
