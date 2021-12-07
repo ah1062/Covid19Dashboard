@@ -16,6 +16,10 @@ Functions:
 import requests
 import json
 
+import os
+
+package_dir = os.path.dirname(os.path.realpath(__file__))
+
 # MY API KEY: 41335430eabc4a6ea4818b233d6a92d1 TO STORE
 
 def get_news_data():

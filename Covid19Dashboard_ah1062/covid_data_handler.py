@@ -18,6 +18,10 @@ Functions:
 
 from uk_covid19 import Cov19API
 
+import os
+
+package_dir = os.path.dirname(os.path.realpath(__file__))
+
 def parse_csv_data(file_name):
     """Handle a given CSV Filename, to transform the data into a manageable set
 
