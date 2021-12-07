@@ -1,5 +1,5 @@
-from dashboard import update_covid
-from dashboard import update_news
+from Covid19Dashboard_ah1062.dashboard import update_covid
+from Covid19Dashboard_ah1062.dashboard import update_news
 
 def test_update_covid():
     x, y = update_covid("Exeter", "ltla")

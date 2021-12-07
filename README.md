@@ -58,21 +58,30 @@ pip install Covid19Dashboard
 ### **USAGE**
 ---
 
-To set up the dashboard for opening in a browser, the user must execute the main.py python file in the package. This can be done through the command line, or a Python Shell if the file is loaded into an IDE such as IDLE, or another environment.
-
-```bash
-#cd "<Directory_To_Package_Folder>"
-#py main.py
-```
-
 If the Package has been imported, the dashboard can be alternatively loaded by calling the run() function created in main.py, as opposed to the execution of app.run() when the module is being run directly.
 
 ```python
-#from Covid19Dashboard import main
-#main.run()
+from Covid19Dashboard_ah1062 import dashboard
+dashboard.run()
 ```
 
 Once the dashboard is running, the local development server can be accessed by web browser, using the url **127.0.0.1:5000**.
+
+### *<u>Testing</u>*
+
+Functionality of the Package can be assessed via the use of pytest, or the calling of a pytest function from within dashboard.py
+
+'''bash
+cd <path/to/package>
+pytest
+'''
+
+**OR**
+
+'''python
+from Covid19Dashboard_ah1062 import dashboard
+dashboard.test_functions()
+'''
 
 ---
 ### **DETAILS**

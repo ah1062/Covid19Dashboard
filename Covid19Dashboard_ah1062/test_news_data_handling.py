@@ -1,5 +1,5 @@
-from covid_news_handling import news_API_request
-from covid_news_handling import get_news_data
+from Covid19Dashboard_ah1062.covid_news_handling import news_API_request
+from Covid19Dashboard_ah1062.covid_news_handling import get_news_data
 
 def test_news_API_request():
     assert news_API_request()

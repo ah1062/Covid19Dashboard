@@ -1,7 +1,7 @@
-from covid_data_handler import parse_csv_data
-from covid_data_handler import process_covid_csv_data
-from covid_data_handler import covid_API_request
-from covid_data_handler import get_covid_data
+from Covid19Dashboard_ah1062.covid_data_handler import parse_csv_data
+from Covid19Dashboard_ah1062.covid_data_handler import process_covid_csv_data
+from Covid19Dashboard_ah1062.covid_data_handler import covid_API_request
+from Covid19Dashboard_ah1062.covid_data_handler import get_covid_data
 
 #from covid_data_handler import schedule_covid_updates
 

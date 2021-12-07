@@ -59,8 +59,8 @@ import pytest
 
 import json
 
-import covid_data_handler as cdh
-import covid_news_handling as cnh
+import Covid19Dashboard_ah1062.covid_data_handler as cdh
+import Covid19Dashboard_ah1062.covid_news_handling as cnh
 
 app = Flask(__name__, template_folder="templates")
 
@@ -89,33 +89,30 @@ def startup():
     # Overwrites Log File to account for New Session of the Site
     logging.info("New Session Started")
     
-    passed = test_functions()
+    logging.info("Requesting Covid Data, News Articles, and Configurations")
+
+    # Need some sort of threading to prevent halting of site interaction
     
-    if passed:
-        logging.info("Requesting Covid Data, News Articles, and Configurations")
+    #check_task = scheduler.enter(60, 1, check_tasks)
 
-        # Need some sort of threading to prevent halting of site interaction
-        
-        #check_task = scheduler.enter(60, 1, check_tasks)
+    # Initialises datapoints for presentation on the site
+    # Tuple format ( Tuple(last7days, totalDeaths, hospitalCases), location, locationType )
+    global national_tuple, local_tuple
+    # Fetch new Date, from config.json location, location_type info
+    location = get_user_details("config", "location")
+    location_type = get_user_details("config", "location_type")
 
-        # Initialises datapoints for presentation on the site
-        # Tuple format ( Tuple(last7days, totalDeaths, hospitalCases), location, locationType )
-        global national_tuple, local_tuple
-        # Fetch new Date, from config.json location, location_type info
-        location = get_user_details("config", "location")
-        location_type = get_user_details("config", "location_type")
+    national_tuple, local_tuple = update_covid(location, location_type)
 
-        national_tuple, local_tuple = update_covid(location, location_type)
+    global current_schedules
+    current_schedules = get_user_details("config", "update_intervals")
 
-        global current_schedules
-        current_schedules = get_user_details("config", "update_intervals")
+    # Individual Article Format ( {"title":title, "content":content} )
+    global current_articles
+    current_articles = cnh.get_news_data()
 
-        # Individual Article Format ( {"title":title, "content":content} )
-        global current_articles
-        current_articles = cnh.get_news_data()
-
-        # Redirect site to app.route('/index')
-        return redirect('/index')
+    # Redirect site to app.route('/index')
+    return redirect('/index')
 
 @app.route('/index')
 def index():
@@ -484,13 +481,7 @@ def test_functions():
     # os.system("pytest")
 
 def run():
-    passed = test_functions()
-    
-    if passed:
-        app.run(debug=True)
+    app.run(debug=True)
 
 if __name__ == "__main__":
-    passed = test_functions()
-    
-    if passed:
-        app.run(debug=True)
+    app.run(debug=True)
