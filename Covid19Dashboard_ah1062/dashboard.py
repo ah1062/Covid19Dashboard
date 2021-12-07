@@ -68,6 +68,8 @@ app = Flask(__name__, template_folder="templates")
 logging.basicConfig(filename="main.log", filemode="w", format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 # app.logger.format = '%(name)s - %(levelname)s - %(message)s'
 
+package_dir = os.path.dirname(os.path.realpath(__file__))
+
 current_schedules = []
 current_articles = []
 
@@ -380,7 +382,7 @@ def get_user_details(group_name, item_name):
     """
     
     # Reads config.json file to access stored details
-    with open("config.json", "r") as f:
+    with open(package_dir + "\\config.json", "r") as f:
         lines = f.read()
         # Load raw text as json object for navigation, returns specified key, value
         data = json.loads(lines)
@@ -401,7 +403,7 @@ def blacklist_article(article):
     
     # Store current list of invalid_articles to present, read from file of articles that have been previously removed
     invalid_articles = []
-    with open("config.json", "r") as f:
+    with open(package_dir + "\config.json", "r") as f:
         lines = f.read()
         # Load as json for ease of use in adding new blacklisted article
         invalid_articles = json.loads(lines)
@@ -410,7 +412,7 @@ def blacklist_article(article):
     invalid_articles["config"]["invalid_articles"].append({"title":article['title'], "content":article['content'], "url":article["url"]})
 
     # Overwrite invalid_articles.json, with indent for ease of reading and user access
-    with open("config.json", "w") as f:
+    with open(package_dir + "\config.json", "w") as f:
         json_str = json.dumps(invalid_articles, indent=4)
         f.write(json_str)
 
@@ -428,7 +430,7 @@ def update_schedules_config(schedule_object, remove=False):
     json_str = ""
     
     # Reads config.json file to manage data for manipulation
-    with open("config.json", "r") as f:
+    with open(package_dir + "\config.json", "r") as f:
         lines = f.read()
         # Loads raw text as json object for navigation
         data = json.loads(lines)
@@ -452,7 +454,7 @@ def update_schedules_config(schedule_object, remove=False):
         json_str = json.dumps(data, indent=4)
     
     # Overwrites previous config.json content with new updated config data
-    with open("config.json", "w") as f:
+    with open(package_dir + "\config.json", "w") as f:
         f.write(json_str)
 
 def test_functions():

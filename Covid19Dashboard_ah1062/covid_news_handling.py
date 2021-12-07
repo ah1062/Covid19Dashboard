@@ -40,7 +40,7 @@ def news_API_request(request_terms="Covid COVID-19 coronavirus"):
     
     """
 
-    with open("config.json", "r") as fc:
+    with open(package_dir + "\\config.json", "r") as fc:
         lines = fc.read()
         # Load raw text as json object for navigation, returns specified key, value
         data = json.loads(lines)
@@ -53,7 +53,7 @@ def news_API_request(request_terms="Covid COVID-19 coronavirus"):
 
     # Generate Set of Articles to not present, read from file of articles that have been previously removed
     invalid_articles = []
-    with open("config.json", "r") as f:
+    with open(package_dir + "\\config.json", "r") as f:
         lines = f.read()
         stored_invalid = json.loads(lines)
 

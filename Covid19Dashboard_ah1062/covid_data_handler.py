@@ -31,7 +31,7 @@ def parse_csv_data(file_name):
     if isinstance(file_name, str):
         try:
             # Open File from Folder CSV Data Files
-            with open(f"CSV data files/{file_name}", "r") as open_csv:
+            with open(package_dir + f"\\CSV data files\\{file_name}", "r") as open_csv:
                 # Read the Raw Text
                 lines = open_csv.readlines()
 
