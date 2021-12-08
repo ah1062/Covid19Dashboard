@@ -34,6 +34,12 @@ If modules are currently installed, pip will return a message in response to thi
 pip list
 ```
 
+**OR**
+
+```bash
+pip show <MODULE_NAME>
+```
+
 This lists all currently installed packages and their version, as of the publishing of this package, versions for the prerequisite packages uk-covid19, flask, and pytest are so.
 
 ```bash
@@ -51,14 +57,14 @@ pytest      - 6.2.5
 To install the Covid19Dashboard, the package can be installed using [pip](https://pip.pypa.io/en/stable), similarly to the prerequisite modules necessary for the package to function. 
 
 ```bash
-pip install Covid19Dashboard
+pip install Covid19Dashboard_ah1062
 ```
 
 ---
 ### **USAGE**
 ---
 
-If the Package has been imported, the dashboard can be alternatively loaded by calling the run() function created in main.py, as opposed to the execution of app.run() when the module is being run directly.
+If the Package has been imported, the dashboard can be alternatively loaded by calling the run() function created in dashboard.py, as opposed to the execution of app.run() when the module is being run directly.
 
 ```python
 from Covid19Dashboard_ah1062 import dashboard
@@ -71,17 +77,17 @@ Once the dashboard is running, the local development server can be accessed by w
 
 Functionality of the Package can be assessed via the use of pytest, or the calling of a pytest function from within dashboard.py
 
-'''bash
+```bash
 cd <path/to/package>
 pytest
-'''
+```
 
 **OR**
 
-'''python
+```python
 from Covid19Dashboard_ah1062 import dashboard
 dashboard.test_functions()
-'''
+```
 
 ---
 ### **DETAILS**

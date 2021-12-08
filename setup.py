@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Covid19Dashboard_ah1062",
-    version="0.0.10",
+    version="0.0.11",
     author="Alex Houghton",
     author_email="ah1062@exeter.ac.uk",
     description="Covid-19 Data Presentation Dashboard, ECM1400 Programming Coursework",

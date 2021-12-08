@@ -97,21 +97,21 @@ def startup():
     
     #check_task = scheduler.enter(60, 1, check_tasks)
 
-    # Initialises datapoints for presentation on the site
-    # Tuple format ( Tuple(last7days, totalDeaths, hospitalCases), location, locationType )
-    global national_tuple, local_tuple
-    # Fetch new Date, from config.json location, location_type info
-    location = get_user_details("config", "location")
-    location_type = get_user_details("config", "location_type")
+    # # Initialises datapoints for presentation on the site
+    # # Tuple format ( Tuple(last7days, totalDeaths, hospitalCases), location, locationType )
+    # global national_tuple, local_tuple
+    # # Fetch new Date, from config.json location, location_type info
+    # location = get_user_details("config", "location")
+    # location_type = get_user_details("config", "location_type")
 
-    national_tuple, local_tuple = update_covid(location, location_type)
+    # national_tuple, local_tuple = update_covid(location, location_type)
 
-    global current_schedules
-    current_schedules = get_user_details("config", "update_intervals")
+    # global current_schedules
+    # current_schedules = get_user_details("config", "update_intervals")
 
-    # Individual Article Format ( {"title":title, "content":content} )
-    global current_articles
-    current_articles = cnh.get_news_data()
+    # # Individual Article Format ( {"title":title, "content":content} )
+    # global current_articles
+    # current_articles = cnh.get_news_data()
 
     # Redirect site to app.route('/index')
     return redirect('/index')
@@ -314,7 +314,7 @@ def update_news(current_articles):
 
     """
 
-    if isinstance(current_articles, dict):
+    if isinstance(current_articles, list):
         # Clear Current Articles List and Fetch New List of Articles
         current_articles.clear()
         current_articles = cnh.get_news_data()
