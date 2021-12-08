@@ -90,5 +90,24 @@ dashboard.test_functions()
 ```
 
 ---
+### **CONFIGURATION**
+---
+
+There is a configuration file linked to the package, and is stored in the package directory available in site-packages following the installation.
+The configuration file is accessed throughout the package, most often via the get_user_details method in dashboard.py
+
+The configuration file is written and stored in JSON format, the structure will be written below.
+
+"config"
+    "location"          : str
+    "location_type"     : str
+    "update_intervals"  : list
+    "invalid_articles"  : list
+"display"
+    ---                 : None
+"details"
+    "news-api-key"      : str
+
+---
 ### **DETAILS**
 ---

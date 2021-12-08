@@ -8,7 +8,7 @@ def test_update_covid():
     assert isinstance(y, tuple) == True
 
 def test_update_news():
-    x = {}
+    x = []
     news = update_news(x)
 
     assert len(news) > 1 == True 
