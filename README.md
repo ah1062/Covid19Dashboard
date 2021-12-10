@@ -60,6 +60,9 @@ To install the Covid19Dashboard, the package can be installed using [pip](https:
 pip install Covid19Dashboard_ah1062
 ```
 
+Before the package can be properly utilised, the user must first replace the 'news-api-key' config token with there own NewsAPI key.
+This can be done by navigating to the package directory, and amending the config.json file.
+
 ---
 ### **USAGE**
 ---
