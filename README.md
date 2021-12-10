@@ -111,3 +111,7 @@ The configuration file is written and stored in JSON format, the structure will 
 ---
 ### **DETAILS**
 ---
+
+Developed by Alex Houghton, ah1062, for ECM1400 Programming.
+
+MIT License, detailed in LICENSE File
